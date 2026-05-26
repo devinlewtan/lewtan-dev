@@ -38,7 +38,7 @@ export const articles: {
 }[] = [
   { title: "Rediscovering Desire in a Panopticon of Virtual Pleasures", author: "Dean Kissick", href: "https://anothersomething.org/fast/rediscovering-desire-in-a-panopticon-of-virtual-pleasures/", image: "rediscovering_desire.png" },
   { title: "Status as a Service",        author: "Eugene Wei",                          href: "https://www.eugenewei.com/blog/2019/2/19/status-as-a-service",                                    image: "status_as_a_service.png" },
-  { title: "Squad Wealth",               author: "Sam Hart, Toby Shorin & Laura Lotti", href: "https://otherinter.net/research/squad-wealth/",                                                   image: "Group-19.png" },
+  { title: "Squad Wealth",               author: "Sam Hart, Toby Shorin & Laura Lotti", href: "https://otherinter.net/research/squad-wealth/",                                                   image: "squad_wealth.png" },
   { title: "Cyborg Manifesto",           author: "Donna Haraway",                       href: "https://warwick.ac.uk/fac/arts/english/currentstudents/undergraduates/modules/fictionnownarrativemediaandtheoryinthe21stcentury/manifestly_haraway_----_a_cyborg_manifesto_science_technology_and_socialist-feminism_in_the_....pdf", image: "cyborg_manifesto.png" },
   { title: "We Live in the Era of Mids", author: "Blackbird Spyplane",                  href: "https://www.blackbirdspyplane.com/p/we-live-in-the-era-of-mids?utm_source=publication-search",  image: "spybird.png" },
 ];
