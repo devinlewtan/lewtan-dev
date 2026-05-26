@@ -27,7 +27,7 @@ export const tv: {
   { title: "MTV's Next",              year: 2005, wiki: "Next_(TV_series)",                   imdb: "tt0449460", image: "https://static1.squarespace.com/static/62e424706f09502c5a57dec6/62e7bd60277ad07624901d2c/63b62aa7cb45623a17f47b13/1672933290759/MV5BOWIxNDhhZmItMTY3Yy00ODIxLWE4ZDMtNzVkNTFmZDI0NzZmXkEyXkFqcGdeQXVyMjIwNjUzNDQ%40._V1_.jpg?format=1500w" },
   { title: "Nathan for You",          year: 2013, wiki: "Nathan_for_You",                     imdb: "tt2297757", image: "https://image.tmdb.org/t/p/w500/6tGXlz61c44onUg6EdRkbhjcaPA.jpg" },
   { title: "Show About the Show",     year: 2015, wiki: "Caveh_Zahedi",                       imdb: "tt5097492", image: "https://image.tmdb.org/t/p/w500/s4BOnSuM5ArnupbWJx7d1FdGfzC.jpg" },
-  { title: "Black Mirror",            year: 2011, wiki: "Black_Mirror",                       imdb: "tt5710978", image: "https://pics.filmaffinity.com/black_mirror_hang_the_dj-670939671-large.jpg" },
+  { title: "Black Mirror",            year: 2011, wiki: "Black_Mirror",                       imdb: "tt5710978", image: "https://onderhond.com/img/posters/hang-dj.jpg" },
   { title: "The White Lotus",         year: 2021, wiki: "The_White_Lotus",                    imdb: "tt13406094", image: "https://image.tmdb.org/t/p/w500/gbSaK9v1CbcYH1ISgbM7XObD2dW.jpg" },
   { title: "The Twilight Zone",       year: 1959, wiki: "The_Twilight_Zone_(1959_TV_series)", imdb: "tt0052520", image: "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg" },
   { title: "Silicon Valley",          year: 2014, wiki: "Silicon_Valley_(TV_series)",         imdb: "tt2575988", image: "https://image.tmdb.org/t/p/w500/4ptpmWBVD9HY9hMh8Cbs6SMiy7p.jpg" },
