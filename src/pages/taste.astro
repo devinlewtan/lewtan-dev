@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { movies, tv, articles, books } from '../data/taste';
+import { getWikiPoster, getBookCoverUrl } from '../lib/posters';
+
+const COLORS = ['#3ABCE4','#8FC95D','#E3924B','#FF90ED'];
+// Offset each row's starting color so rows don't all begin with the same hue
+const color = (i: number, cols = 4) => COLORS[(i + Math.floor(i / cols)) % COLORS.length];
+
+// Fetch all posters at build time in parallel
+const [moviePosters, tvPosters] = await Promise.all([
+  Promise.all(movies.map(m => getWikiPoster(m.wiki))),
+  Promise.all(tv.map(t => getWikiPoster(t.wiki))),
+]);
+
+// Book covers: Open Library — direct URL, no fetch needed
+const bookCovers = books.map(b => getBookCoverUrl(b.isbn));
+---
+
+<Layout title="Taste of my taste">
+
+  <section class="taste-section">
+    <h2 class="taste-section-title">🎬 Movies</h2>
+    <div class="taste-grid">
+      {movies.map((m, i) => (
+        <a
+          class="taste-card"
+          href={m.letterboxd ? `https://letterboxd.com/film/${m.letterboxd}/` : undefined}
+          target="_blank" rel="noopener"
+          style={`--label-color:${color(i)}`}
+        >
+          <div class="stamp-wrap">
+            <img src={m.image ?? moviePosters[i] ?? ''} alt={m.title} loading="lazy" class="stamp-img" />
+          </div>
+          <div class="taste-label">{m.title}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="taste-section">
+    <h2 class="taste-section-title">📺 TV</h2>
+    <div class="taste-grid">
+      {tv.map((t, i) => (
+        <a
+          class="taste-card"
+          href={t.imdb ? `https://www.imdb.com/title/${t.imdb}/` : undefined}
+          target="_blank" rel="noopener"
+          style={`--label-color:${color(i)}`}
+        >
+          <div class="stamp-wrap">
+            <img src={t.image ?? tvPosters[i] ?? ''} alt={t.title} loading="lazy" class="stamp-img" />
+          </div>
+          <div class="taste-label">{t.title}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="taste-section">
+    <h2 class="taste-section-title">⭐ Articles</h2>
+    <div class="taste-grid">
+      {articles.map((a, i) => (
+        <a
+          class="taste-card"
+          href={a.href}
+          target="_blank" rel="noopener"
+          style={`--label-color:${color(i)}`}
+        >
+          <div class="stamp-wrap">
+            <img src={`/images/taste/${a.image}`} alt={a.title} loading="lazy" class="stamp-img" />
+          </div>
+          <div class="taste-label">
+            {a.title}<br/><span class="taste-sublabel">{a.author}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="taste-section">
+    <h2 class="taste-section-title">📚 Books</h2>
+    <div class="taste-grid">
+      {books.map((b, i) => (
+        <a
+          class="taste-card"
+          href={b.goodreads ? `https://www.goodreads.com/book/show/${b.goodreads}` : undefined}
+          target="_blank" rel="noopener"
+          style={`--label-color:${color(i)}`}
+        >
+          <div class="stamp-wrap">
+            <img src={b.image ?? bookCovers[i]} alt={b.title} loading="lazy" class="stamp-img" />
+          </div>
+          <div class="taste-label">
+            {b.title}<br/><span class="taste-sublabel">{b.author}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .taste-section { margin-bottom: 52px; }
+
+  .taste-section-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #aaa;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(128,128,128,0.25);
+  }
+
+  .taste-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px 12px;
+  }
+
+  .taste-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.15s;
+  }
+
+  a.taste-card:hover { opacity: 0.8; }
+
+  .stamp-wrap {
+    width: 100%;
+    line-height: 0;
+  }
+
+  .stamp-img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: top;
+
+    --h: 6px;   /* notch depth & width */
+    --g: 13px;  /* notch period */
+
+    /* Rectangular notches on all 4 edges — corners naturally form a small square bite */
+    -webkit-mask:
+      linear-gradient(90deg, #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        0 0 / var(--g) var(--h) repeat-x,
+      linear-gradient(90deg, #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        0 100% / var(--g) var(--h) repeat-x,
+      linear-gradient(0deg,  #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        0 0 / var(--h) var(--g) repeat-y,
+      linear-gradient(0deg,  #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        100% 0 / var(--h) var(--g) repeat-y,
+      linear-gradient(#000 0 0) var(--h) var(--h) / calc(100% - var(--h)*2) calc(100% - var(--h)*2) no-repeat;
+    mask:
+      linear-gradient(90deg, #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        0 0 / var(--g) var(--h) repeat-x,
+      linear-gradient(90deg, #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        0 100% / var(--g) var(--h) repeat-x,
+      linear-gradient(0deg,  #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        0 0 / var(--h) var(--g) repeat-y,
+      linear-gradient(0deg,  #000 calc((var(--g) - var(--h)) / 2), #0000 0, #0000 calc((var(--g) + var(--h)) / 2), #000 0)
+        100% 0 / var(--h) var(--g) repeat-y,
+      linear-gradient(#000 0 0) var(--h) var(--h) / calc(100% - var(--h)*2) calc(100% - var(--h)*2) no-repeat;
+  }
+
+  .taste-label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--label-color);
+    text-align: center;
+  }
+
+  .taste-sublabel {
+    font-weight: 400;
+    color: #888;
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 900px) { .taste-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .taste-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>

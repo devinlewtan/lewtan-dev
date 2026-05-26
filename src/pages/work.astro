@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Work">
+  <h1 class="page-title">Work</h1>
+
+  <div class="work-grid">
+
+    <!-- turbopuffer -->
+    <div class="work-card" id="turbopuffer">
+      <div class="work-card-image-wrap tp-bg">
+        <img
+          class="work-card-image contain"
+          src="/images/turbopuffer.png"
+          alt="turbopuffer"
+        />
+      </div>
+      <div class="work-card-content">
+        <div class="work-card-label">Current · 2024–Present</div>
+        <h2 class="work-card-title">
+          <a href="https://turbopuffer.com" target="_blank" rel="noopener">turbopuffer</a>
+        </h2>
+        <p class="work-card-desc">
+          <!-- TODO: fill in your role + what you work on -->
+        </p>
+        <div class="work-card-tags">
+          <span class="work-tag">Growth</span>
+          <span class="work-tag">GTM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Browser Company -->
+    <div class="work-card reverse" id="browser-company">
+      <div class="work-card-image-wrap bc-bg">
+        <img
+          class="work-card-image contain"
+          src="/images/browser-company.png"
+          alt="The Browser Company"
+        />
+      </div>
+      <div class="work-card-content">
+        <div class="work-card-label">2022–2024</div>
+        <h2 class="work-card-title">
+          <a href="https://dia.so" target="_blank" rel="noopener">The Browser Company</a>
+        </h2>
+        <p class="work-card-desc">
+          Worked on Growth at The Browser Company, the team behind Arc and Dia.
+          <!-- TODO: add more detail -->
+        </p>
+        <div class="work-card-tags">
+          <span class="work-tag">Growth</span>
+          <span class="work-tag">Product</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mad Realities -->
+    <div class="work-card" id="mad-realities">
+      <div class="work-card-media">
+        <img
+          class="work-card-image"
+          src="/images/mad-realities-hero.png"
+          alt="Mad Realities"
+        />
+      </div>
+      <div class="work-card-content">
+        <div class="work-card-label">Co-founder · 2021–2023</div>
+        <h2 class="work-card-title">Mad Realities</h2>
+        <p class="work-card-desc">
+          Mad Realities built a new future of entertainment by allowing audiences
+          to influence and control the content they consume and giving creatives a platform
+          to distribute and unlock their most genius ideas.
+        </p>
+        <div class="work-card-tags">
+          <span class="work-tag">Co-founder</span>
+          <span class="work-tag">Entertainment</span>
+          <span class="work-tag">Web3</span>
+          <span class="work-tag">Media</span>
+        </div>
+        <div class="work-card-press">
+          <div class="press-label">As featured in</div>
+          <span class="press-logo">Vanity Fair</span>
+          <span class="press-logo">Vulture</span>
+          <span class="press-logo">Fortune</span>
+          <span class="press-logo">TechCrunch</span>
+          <span class="press-logo">Input</span>
+          <span class="press-logo">Business Insider</span>
+          <span class="press-logo">NY Post</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<style>
+  .work-card-image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .tp-bg { background: #f8f8f4; }
+  .bc-bg { background: #1a47ff; }
+
+  .work-card-image.contain {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  .work-card-media {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

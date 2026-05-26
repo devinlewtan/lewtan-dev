@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="home-layout">
+    <div class="home-photo-wrap">
+      <img class="home-photo" src="/images/devin.jpg" alt="Devin Lewtan" />
+      <img class="home-photo-alt" src="/images/devin-dark.jpg" alt="Devin Lewtan" />
+    </div>
+
+    <div class="home-content">
+      <div class="home-bio">
+        <p>Hi, I'm Devin! I currently own brand at <a href="https://turbopuffer.com/" target="_blank" rel="noopener" style="--link-color:#E3924B">turbopuffer</a> 🐡</p>
+
+        <p>Previously, I helped bring Arc Search and Dia to market at <a href="https://www.thebrowser.company/" target="_blank" rel="noopener" style="--link-color:#3ABCE4">The Browser Company</a>, before <a href="https://techcrunch.com/2025/09/04/atlassian-to-buy-arc-developer-the-browser-company-for-610m/" target="_blank" rel="noopener" style="--link-color:#8FC95D">we were acquired by Atlassian</a>. In a former life, I also spent time as an engineer at <a href="https://www.clay.com/" target="_blank" rel="noopener" style="--link-color:#FF90ED">Clay</a>.</p>
+
+        <p>I am also the co-founder of <a href="https://www.madrealities.tv/" target="_blank" rel="noopener" style="--link-color:#3ABCE4"><strong>Mad Realities</strong></a>, a new age entertainment studio that's been featured in <a href="https://www.nytimes.com/2025/06/16/style/bodega-cats-new-york.html" target="_blank" rel="noopener" style="--link-color:#E3924B">The New York Times</a>, <a href="https://variety.com/2025/politics/columns/zohran-mamdani-appearance-shop-cats-1236567338/" target="_blank" rel="noopener" style="--link-color:#8FC95D">Variety</a>, <a href="https://www.vulture.com/article/mad-realities-crypto-dating-show.html" target="_blank" rel="noopener" style="--link-color:#FF90ED">Vulture</a>, <a href="https://fortune.com/2022/04/25/crypto-dating-show-mad-realities-fundraise-paris-hilton/" target="_blank" rel="noopener" style="--link-color:#3ABCE4">Fortune</a>, <a href="https://www.vogue.com/article/cat-power-new-york-city-shop-cats-spring-2026-baubles" target="_blank" rel="noopener" style="--link-color:#E3924B">Vogue</a>, <a href="https://www.inverse.com/input/culture/proof-of-love-mad-realities-crypto-reality-dating-show-nyc" target="_blank" rel="noopener" style="--link-color:#8FC95D">Input</a>, <a href="https://www.hollywoodreporter.com/business/business-news/mad-realities-caa-1236179402/" target="_blank" rel="noopener" style="--link-color:#FF90ED">The Hollywood Reporter</a>, <a href="https://www.forbes.com/profile/mad-realities/" target="_blank" rel="noopener" style="--link-color:#3ABCE4">Forbes</a>, and more. My foray in participatory media began deep in the pandemic, running <a href="https://www.washingtonpost.com/technology/2021/04/09/clubhouse-nyu-girls-roasting-tech-guys-bar/" target="_blank" rel="noopener" style="--link-color:#8FC95D">NYU Girls Roasting Tech Guys</a> with my 7 best friends from college.</p>
+
+        <p>At heart, I'm an artist, entertainer, and lifelong student. If you're still here, please enjoy <a href="/taste" style="--link-color:#FF90ED">a taste of my taste</a>, <a href="https://devinlewtan.substack.com" target="_blank" rel="noopener" style="--link-color:#3ABCE4">limited writing</a>, and <a href="https://open.spotify.com/user/slewtan" target="_blank" rel="noopener" style="--link-color:#E3924B">playlists</a>.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .home-bio p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--fg);
+    margin-bottom: 0.8em;
+    text-wrap: pretty;
+  }
+
+  .home-bio p:last-child { margin-bottom: 0; }
+
+  .home-bio a {
+    color: var(--link-color);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 0 2px;
+    margin: 0 -2px;
+    border-radius: 2px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .home-bio a:hover {
+    background: var(--link-color);
+    color: white;
+    text-decoration: none;
+  }
+</style>
