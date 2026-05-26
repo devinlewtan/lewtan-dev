@@ -153,6 +153,13 @@ header {
   color: var(--fg);
 }
 
+.loc-short { display: none; }
+
+@media (max-width: 768px) {
+  .loc-full  { display: none; }
+  .loc-short { display: inline; }
+}
+
 /* ── Main ── */
 main {
   flex: 1;
